@@ -12,7 +12,12 @@
     <div class="container">
         <div class="jumbotron">
             <h2>PHP - CRUD : Display Data in PHP</h2>
-            <hr />
+            <hr>
+<div class="row">
+<a href="InsertData.php" class="btn btn-success" style="margin-left:80%;">ADD DATA</a>
+</div>
+
+<br>
 
             <?php
             $connection = mysqli_connect("localhost", "root", "");
