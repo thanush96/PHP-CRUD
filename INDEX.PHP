@@ -22,6 +22,49 @@
             $query_run = mysqli_query($connection, $query);
             ?>
 
+            <table class="table table-borderd" style="background-color: while;">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Contact</th>
+                        <th>EDIT</th>
+                        <th>DELETE</th>
+                    </tr>
+                </thead>
+
+                <?php
+
+                if ($query_run) {
+                    while ($row = mysqli_fetch_array($query_run)) {
+                ?>
+
+                        <tbody>
+                            <tr>
+                                <th><?php echo $row['id']; ?> </th>
+                                <th><?php echo $row['fname']; ?> </th>
+                                <th><?php echo $row['lname']; ?> </th>
+                                <th><?php echo $row['contact']; ?> </th>
+                                <th> <a href="" class="btn btn-primary">Edit</a></th>
+                                <th> <a href="" class="btn btn-danger">Delete</a></th>
+                            </tr>
+                        </tbody>
+
+                <?php
+
+
+
+
+                    }
+                } else {
+                    echo "No Record Found";
+                }
+
+
+                ?>
+            </table>
+
         </div>
     </div>
 
