@@ -30,7 +30,7 @@
 
             <button type="submit" name="insert" class="btn btn-primary">  Save Data </button>
 
-            <a href="INDEX.PHP" class="btn btn-danger">Cancel</a>
+            <a href="index.php" class="btn btn-danger">Cancel</a>
         </form>
 </body>
 
