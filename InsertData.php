@@ -17,15 +17,15 @@
         <form action="" method="post">
             <div class="form-group">
                 <label for="">First Name</label>
-                <input type="text" name="fname" class="form-control" placeholder="Enter your First Name">
+                <input type="text" name="fname" class="form-control" placeholder="Enter your First Name" require>
             </div>
             <div class="form-group">
                 <label for="">Last Name</label>
-                <input type="text" name="lname" class="form-control" placeholder="Enter your Last Name">
+                <input type="text" name="lname" class="form-control" placeholder="Enter your Last Name" require>
             </div>
             <div class="form-group">
                 <label for="">Contect</label>
-                <input type="text" name="contact" class="form-control" placeholder="Enter your Contect Number">
+                <input type="text" name="contact" class="form-control" placeholder="Enter your Contect Number" require>
             </div>
 
             <button type="submit" name="insert" class="btn btn-primary">  Save Data </button>
@@ -35,3 +35,27 @@
 </body>
 
 </html>
+
+<?php
+$connection=mysqli_connect("localhost","root","");
+$db=mysqli_select_db($connection,'phpcrud');
+
+if(isset($_POST['insert'])){
+    $fname=$_POST['fname'];
+    $lname=$_POST['lname'];
+    $contact=$_POST['contact'];
+
+    $query="INSERT INTO student(`fname`,`lname`,`contact`)VALUES('$fname','$lname','$contact')";
+    $query_run=mysqli_query($connection,$query);
+
+    if($query_run){
+        echo '<script>alert("Data Saved");</script>';
+    }
+    else{ 
+        echo '<script>alert("Data Not Saved");</script>';
+
+    }
+
+}
+
+?>
