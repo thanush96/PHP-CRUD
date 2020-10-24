@@ -28,7 +28,7 @@
                 <input type="text" name="contact" class="form-control" placeholder="Enter your Contect Number" require>
             </div>
 
-            <button type="submit" name="insert" class="btn btn-primary">  Save Data </button>
+            <button type="submit" name="insert" class="btn btn-primary"> Save Data </button>
 
             <a href="index.php" class="btn btn-danger">Cancel</a>
         </form>
@@ -37,25 +37,22 @@
 </html>
 
 <?php
-$connection=mysqli_connect("localhost","root","");
-$db=mysqli_select_db($connection,'phpcrud');
+$connection = mysqli_connect("localhost", "root", "");
+$db = mysqli_select_db($connection, 'phpcrud');
 
-if(isset($_POST['insert'])){
-    $fname=$_POST['fname'];
-    $lname=$_POST['lname'];
-    $contact=$_POST['contact'];
+if (isset($_POST['insert'])) {
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $contact = $_POST['contact'];
 
-    $query="INSERT INTO student(`fname`,`lname`,`contact`)VALUES('$fname','$lname','$contact')";
-    $query_run=mysqli_query($connection,$query);
+    $query = "INSERT INTO student(`fname`,`lname`,`contact`)VALUES('$fname','$lname','$contact')";
+    $query_run = mysqli_query($connection, $query);
 
-    if($query_run){
+    if ($query_run) {
         echo '<script>alert("Data Saved");</script>';
-    }
-    else{ 
+    } else {
         echo '<script>alert("Data Not Saved");</script>';
-
     }
-
 }
 
 ?>

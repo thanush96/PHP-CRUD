@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,27 +8,26 @@
 
     <title>Update Data</title>
 </head>
+
 <body>
     <?php
-    
-    $connection=mysqli_connect("localhost","root","");
-    $db=mysqli_select_db($connection,'phpcrud');
-    
-    $id=$_POST['id'];
 
-    $query="SELECT * FROM student WHERE id='$id'";
-    $query_run=mysqli_query($connection,$query);
+    $connection = mysqli_connect("localhost", "root", "");
+    $db = mysqli_select_db($connection, 'phpcrud');
 
-    if($query_run)
-    {
-        while($row = mysqli_fetch_array($query_run))
-        {
-            ?>
+    $id = $_POST['id'];
+
+    $query = "SELECT * FROM student WHERE id='$id'";
+    $query_run = mysqli_query($connection, $query);
+
+    if ($query_run) {
+        while ($row = mysqli_fetch_array($query_run)) {
+    ?>
             <div class="container">
                 <div class="jumbotron">
                     <div class="row">
                         <div class="col-md-12">
-                            
+
                             <h2> PHP - CRUD : Update Data</h2>
                             <hr>
                             <form action="" method="post">
@@ -52,10 +52,9 @@
 
                         </div>
                     </div>
-                    
+
                     <?php
-                    if(isset($_POST['update']))
-                    {
+                    if (isset($_POST['update'])) {
                         $fname = $_POST['fname'];
                         $lname = $_POST['lname'];
                         $contact = $_POST['contact'];
@@ -63,13 +62,10 @@
                         $query = "UPDATE student SET fname='$fname', lname='$lname', contact=' $contact' WHERE id='$id'  ";
                         $query_run = mysqli_query($connection, $query);
 
-                        if($query_run)
-                        {
+                        if ($query_run) {
                             echo '<script> alert("Data Updated"); </script>';
                             header("location:index.php");
-                        }
-                        else
-                        {
+                        } else {
                             echo '<script> alert("Data Not Updated"); </script>';
                         }
                     }
@@ -77,22 +73,21 @@
 
                 </div>
             </div>
-            <?php
+        <?php
         }
+    } else {
+        // echo '<script> alert("No Record Found"); </script>';
+        ?>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4>No Record Found</h4>
+                </div>
+            </div>
+        </div>
+    <?php
     }
- else
- {
-     // echo '<script> alert("No Record Found"); </script>';
-     ?>
-     <div class="container">
-         <div class="row">
-             <div class="col-md-12">
-                 <h4>No Record Found</h4>
-             </div>
-         </div>
-     </div>
-     <?php
- }
- ?>
+    ?>
 </body>
+
 </html>
