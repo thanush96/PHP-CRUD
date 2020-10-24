@@ -56,9 +56,9 @@
                                     <th> <input type="submit" name="Edit" value="Edit" class="btn btn-primary">
 
                                 </form>
-                                <form action="DeleteData.php" method="$_POST">
+                                <form action="delete.php" method="POST">
                                     <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
-                                    <th> <input type="submit" name="Delete" value="Delete" class="btn btn-primary">
+                                    <th> <input type="submit" name="delete" value="delete" class="btn btn-danger">
                                 </form>
                             </tr>
                         </tbody>
